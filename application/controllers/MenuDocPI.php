@@ -135,11 +135,25 @@ public function download01($signpi_id)
 	force_download('./assets/SignUpload/'.$file01, NULL);
 }
 
+public function sendmail()
+{
+	$this->load->config('email');
+	$this->load->library('email');
+	$this->email->set_newline("\r\n");
+	$this->email->from('no-reply@gonusa-distribusi.com');
+	$this->email->to(['kurnain.arsyi@gonusa-distribusi.com', 'r.kurnain@gmail.com']);
+	$this->email->subject('test subject email');
+	$this->email->message('test message');
 
+	if ($this->email->send()) {
+		echo 'Your Email has successfully been sent.';
+	} else {
+		show_error($this->email->print_debugger());
+	}
+}
 
 public function upload02($signpi_id)
 {
-
 	$UserId=$this->session->userdata('logged_gexp_in')->UsersId;
 	$data_date=$this->input->post('date02');
 	$berkas=$this->input->post('berkas');
@@ -172,9 +186,9 @@ public function upload02($signpi_id)
 					'pi_progress' => $data_balance->total,
 				];
 		
-				foreach($user_list as $email) {
-					send_mails('PROGRESS PI | '.$data_balance->pi_no, $email, $this->load->view('template/email', $data_email,  TRUE));
-				}
+				// foreach($user_list as $email) {
+					send_mails('PROGRESS PI | '.$data_balance->pi_no, $user_list, $this->load->view('template/email', $data_email,  TRUE));
+				// }
 				
 				$this->session->set_flashdata('success','Success, data berhasil di proses');
 				redirect('MenuDocPI/reloadsignpi/'.$signpi_id);
