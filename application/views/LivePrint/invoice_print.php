@@ -130,14 +130,13 @@
         <table style="margin-bottom: 2%;">
             <tr>
                 <td style="padding-right: 30%;">
-                    <img src="<?=base_url('assets/images/skp-logo-crop-removebg.png')?>" width="10%">
-                </td>
-                <td>
-                    <p class="p_title">INVOICE</p>
-                    <p class="p_nomor"><?=$lsinvoice_byid->gexp_invoice_no?></p>
+                    <img src="<?=base_url('assets/images/skp-logo-crop-removebg.png')?>" width="18%">
                 </td>
             </tr>
         </table>
+
+        <p class="p_title">INVOICE</p>
+        <p class="p_nomor"><?=$lsinvoice_byid->gexp_invoice_no?></p>
 
         <table>
             <tr>
@@ -203,7 +202,7 @@
             <tr>
                 <td class="td_title_header">COUNTRY OF ORIGIN</td>
                 <td class="td_titik_header">:</td>
-                <td class="td_data_header"><?=strtoupper($lsinvoice_byid->CountryName)?></td>
+                <td class="td_data_header">INDONESIA</td>
             </tr>
 
             <tr>
