@@ -167,7 +167,7 @@
                 <td class="td_titik_header">:</td>
                 <td class="td_data_header">
                     <?php
-                        echo strtoupper($lsinvoice_byid->BenePT.'<br>'.$lsinvoice_byid->BeneAddr.'<br>TEL : '.$lsinvoice_byid->BeneCtPhone.'<br>ATTN : '.$lsinvoice_byid->BeneCtName);
+                        echo strtoupper($lsinvoice_byid->BenePT.'<br>'.$lsinvoice_byid->BeneAddr.'<br>TEL : '.$lsinvoice_byid->BeneCtPhone);
                     ?>
                 </td>
             </tr>
