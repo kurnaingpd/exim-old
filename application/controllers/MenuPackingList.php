@@ -163,13 +163,7 @@ public function DetailPack($Packlist_Id)
     $data['printoutview']=$this->MPackList->getprintout_prev($invoice_no);
     $data['detailspack']=$this->MPackList->get_detail_packlistreg($Packlist_Id);
     $data['rowdetailspack']=$this->MPackList->getlistdetailpack_byid($Packlist_Id);
-
-
-    // print_r($Packlist_Id);
-
-
     $this->load->view('MasterPackingList/PackListDet',$data);
-
 }
 
 
