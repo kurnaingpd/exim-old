@@ -110,7 +110,7 @@
                     <td class="td_titik_header">:</td>
                     <td class="td_data_header">
                         <?php
-                            echo $detailsdata_printpack->BenePT.'<br>'.$detailsdata_printpack->BeneAddr.'<br>'.$detailsdata_printpack->BeneCtPhone.'<br>'.$detailsdata_printpack->BeneCtName;
+                            echo $detailsdata_printpack->BenePT.'<br>'.$detailsdata_printpack->BeneAddr.'<br>'.$detailsdata_printpack->BeneCtPhone;
                         ?>
                     </td>
                 </tr>
