@@ -127,7 +127,7 @@
                 <tr>
                     <td class="td_title_header">COUNTRY OF ORIGIN</td>
                     <td class="td_titik_header">:</td>
-                    <td class="td_data_header"><?=$detailsdata_printpack->CountryName?></td>
+                    <td class="td_data_header">INDONESIA</td>
                 </tr>
             </table>
 
