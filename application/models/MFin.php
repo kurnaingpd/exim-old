@@ -194,7 +194,15 @@ function checkvalue_printout($invoice_id)
 {
     // $qry="SELECT * FROM gexp_master_invoice AS A LEFT JOIN gexp_invoice_print AS B ON A.`gexp_invoice_no`=B.inv_print_no WHERE A.`gexp_invoice_id`='$invoice_id'";
 	
-    $qry="SELECT *
+    $qry="SELECT *, 
+        (IFNULL(B.inv_print_batch , 0) +
+        IFNULL(B.inv_print_expired_date , 0) +
+        IFNULL(B.inv_print_production_date , 0)) colspan_etc,
+        
+        (IFNULL(B.inv_print_carton_barcode , 0) +
+        IFNULL(B.inv_print_batch , 0) +
+        IFNULL(B.inv_print_expired_date , 0) +
+        IFNULL(B.inv_print_production_date , 0)) colspan_all
     FROM gexp_master_invoice AS A
     LEFT JOIN gexp_invoice_print AS B ON A.`gexp_invoice_no`=B.inv_print_no
     LEFT JOIN gexp_master_pi C ON A.gexp_invoice_pi = C.gexp_pi_id

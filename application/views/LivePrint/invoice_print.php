@@ -126,8 +126,18 @@
 
     </head>
     <body>
-        <p class="p_title">INVOICE</p>
-        <p class="p_nomor"><?=$lsinvoice_byid->gexp_invoice_no?></p>
+        
+        <table style="margin-bottom: 2%;">
+            <tr>
+                <td style="padding-right: 30%;">
+                    <img src="<?=base_url('assets/images/skp-logo-crop-removebg.png')?>" width="10%">
+                </td>
+                <td>
+                    <p class="p_title">INVOICE</p>
+                    <p class="p_nomor"><?=$lsinvoice_byid->gexp_invoice_no?></p>
+                </td>
+            </tr>
+        </table>
 
         <table>
             <tr>
@@ -283,44 +293,61 @@
                 } else {
                     $terbilang = CurencyLang::toEnglish($tCFR);
                 }
+
+                $cols_fob1 = 6;
+                $cols_freight = 7;
+                $cols_insurance = 7;
+                $cols_cif = 7;
+                $cols_cfr = 7;
+                $cols_said = 8;
+                if($checkvalue_print->inv_print_carton_barcode<>'1') {
+                    $cols_fob1 = $cols_fob1-1;
+                }
+
+                $cols_etc1 = 1 + $checkvalue_print->colspan_etc;
+                $cols_freight = $cols_freight + $checkvalue_print->colspan_all;
+                $cols_insurance = $cols_insurance + $checkvalue_print->colspan_all;
+                $cols_cif = $cols_cif + $checkvalue_print->colspan_all;
+                $cols_cfr = $cols_cfr + $checkvalue_print->colspan_all;
+                $cols_said = $cols_said + $checkvalue_print->colspan_all;
             ?>
 
             <tr>
-                <td colspan="6" class="td_sum" align="left">TOTAL FOB</td>
+                <td colspan="<?=$cols_fob1?>" class="td_sum" align="left">TOTAL FOB</td>
                 <td class="td_sum" align="right"><?=number_format($tQtyPurchase)?></td>
-                <td colspan="4" class="td_sum"></td>
+                <td colspan="<?=$cols_etc1?>" class="td_sum"></td>
                 <td class="td_sum" align="right"><?=number_format($tPricePurchase, 2,".",",")?></td>
             </tr>
 
             <?php if($lsinvoice_byid->CtIncoterm=='3' || $lsinvoice_byid->CtIncoterm=='2') : ?>
                 <tr>
-                    <td colspan="11" class="td_sum" align="left">OCEAN FREIGHT</td>
+                    <td colspan="<?=$cols_freight?>" class="td_sum" align="left">OCEAN FREIGHT</td>
                     <td class="td_sum" align="right"><?=number_format($lsinvoice_byid->gexp_pi_freight_cost, 2,".",",")?></td>
                 </tr>
             <?php endif; ?>
 
             <?php if($lsinvoice_byid->CtIncoterm=='3') : ?>
                 <tr>
-                    <td colspan="11" class="td_sum" align="left">INSURANCE</td>
+                    <td colspan="<?=$cols_insurance?>" class="td_sum" align="left">INSURANCE</td>
                     <td class="td_sum" align="right"><?=number_format($lsinvoice_byid->gexp_pi_insurance, 2,".",",")?></td>
                 </tr>
 
                 <tr>
-                    <td colspan="11" class="td_sum" align="left">TOTAL CIF</td>
+                    <td colspan="<?=$cols_cif?>" class="td_sum" align="left">TOTAL CIF</td>
                     <td class="td_sum" align="right"><?=number_format($tCIF, 2,".",",")?></td>
                 </tr>
             <?php endif; ?>
 
             <?php if($lsinvoice_byid->CtIncoterm=='2') : ?>
                 <tr>
-                    <td colspan="11" class="td_sum" align="left">TOTAL CFR</td>
+                    <td colspan="<?=$cols_cfr?>" class="td_sum" align="left">TOTAL CFR</td>
                     <td class="td_sum" align="right"><?=number_format($tCFR, 2,".",",")?></td>
                 </tr>
             <?php endif; ?>
 
             <?php if($lsinvoice_byid->CtIncoterm=='3' || $lsinvoice_byid->CtIncoterm=='2') : ?>
                 <tr>
-                    <td colspan="12" class="td_sum" align="left">SAY : <?=strtoupper($terbilang.' '.$checkvalue_print->spell)?></td>
+                    <td colspan="<?=$cols_said?>" class="td_sum" align="left">SAY : <?=strtoupper($terbilang.' '.$checkvalue_print->spell)?></td>
                 </tr>
             <?php endif; ?>
         </table>
@@ -399,14 +426,19 @@
                 endif;
 
                 $grandNumber = $tQtyPurchase + $tQtyFree;
-                // $grandAmount = $tPricePurchase + $tPriceFree;
-                // $grandTerbilang = CurencyLang::toEnglish($grandAmount);
+
+                $cols_fob = 6;
+                if($checkvalue_print->inv_print_carton_barcode<>'1') {
+                    $cols_fob = $cols_fob-1;
+                }
+
+                $cols_etc = 1 + $checkvalue_print->colspan_etc;
             ?>
             
             <tr>
-                <td colspan="6" class="td_sum" align="left">TOTAL FOB</td>
+                <td colspan="<?=$cols_fob?>" class="td_sum" align="left">TOTAL FOB</td>        
                 <td class="td_sum" align="right"><?=number_format($tQtyFree)?></td>
-                <td colspan="4" class="td_sum"></td>
+                <td colspan="<?=$cols_etc?>" class="td_sum"></td>
                 <td class="td_sum" align="right"><?=number_format($tPriceFree, 2,".",",")?></td>
             </tr>
         </table>

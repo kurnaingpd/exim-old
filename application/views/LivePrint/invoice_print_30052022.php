@@ -401,12 +401,29 @@
                 $grandNumber = $tQtyPurchase + $tQtyFree;
                 $grandAmount = $tPricePurchase + $tPriceFree;
                 $grandTerbilang = CurencyLang::toEnglish($grandAmount);
+
+                if($checkvalue_print->inv_print_carton_barcode=='1') {
+                    $cols_fob = 6;
+                } else {
+                    $cols_fob = 6-1;
+                }
+
+                $cols_etc = 4;
+                if($checkvalue_print->inv_print_batch=='1') {
+                    $cols_etc = $cols_etc - 1;
+                } elseif($checkvalue_print->inv_print_expired_date=='1') {
+                    $cols_etc = $cols_etc - 1;
+                } elseif($checkvalue_print->inv_print_production_date=='1') {
+                    $cols_etc = $cols_etc - 1;
+                }
+                // $cols_fob = 6;
+                // $cols_etc = 4;
             ?>
             
             <tr>
-                <td colspan="6" class="td_sum" align="left">TOTAL FOB</td>
+                <td colspan="<?$cols_fob?>" class="td_sum" align="left">TOTAL FOB</td>
                 <td class="td_sum" align="right"><?=number_format($tQtyFree)?></td>
-                <td colspan="4" class="td_sum"></td>
+                <td colspan="<?$cols_etc?>" class="td_sum"></td>
                 <td class="td_sum" align="right"><?=number_format($tPriceFree, 2,".",",")?></td>
             </tr>
         </table>
