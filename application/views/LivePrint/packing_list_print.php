@@ -85,14 +85,13 @@
             <table style="margin-bottom: 2%;">
                 <tr>
                     <td style="padding-right: 30%;">
-                        <img src="<?=base_url('assets/images/skp-logo-crop-removebg.png')?>" width="10%">
-                    </td>
-                    <td>
-                        <p class="p_title">PACKING LIST</p>
-                        <p class="p_nomor"><?php echo $detailsdata_printpack->gexp_packlist_number; ?></p>
+                        <img src="<?=base_url('assets/images/skp-logo-crop-removebg.png')?>" width="18%">
                     </td>
                 </tr>
             </table>
+
+            <p class="p_title">PACKING LIST</p>
+            <p class="p_nomor"><?php echo $detailsdata_printpack->gexp_packlist_number; ?></p>
 
             <table>
                 <tr>
