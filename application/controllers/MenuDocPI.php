@@ -79,7 +79,7 @@ class MenuDocPI extends CI_Controller {
 		$implode = implode(", ", $to);
 		$this->load->config('email');
 		$this->load->library('email');
-		$this->email->set_newline("\r\n");
+		// $this->email->set_newline("\r\n");
 		$this->email->from('no-reply@gonusa-distribusi.com');
 		$this->email->to($implode);
 		$this->email->subject($subject);
