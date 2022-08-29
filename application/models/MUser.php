@@ -50,10 +50,18 @@
                 return array();
         }
 		
-		function getlistusers_email(){
+		function getlistusers_email()
+        {
+            $result = [];
             $qry="SELECT * FROM gexp_email_list";
             $res = $this->db->query($qry);
-            return $res->result_array();
+            // return $res->result_array();
+
+            foreach($res->result_array() as $rows) {
+                $result[] = $rows['email'];
+            }
+
+            return $result;
         }
 
         function getrowmasteruser($UsersId){
