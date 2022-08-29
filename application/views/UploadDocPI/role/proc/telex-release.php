@@ -13,9 +13,6 @@
             <input type="date" class="form-control" name="date29" id="inputDefault" value="<?php echo $getrowspi_value->sign_telex_release_date ?>" <?=($groupname->GroupDesc == 'PROCUREMENT'?'':'disabled')?> required>
         </div>
         <div class="col-md-2">
-            <select id="basic" class="form-control" name="telexrelease_val" <?=($groupname->GroupDesc == 'PROCUREMENT'?'':'disabled')?> required>
-                    <option value="">-- Pilih --</option>
-            </select>
         </div>
         <div class="col-md-2">
             <button type="submit" class="btn btn btn-success" <?=($groupname->GroupDesc == 'PROCUREMENT'?'':'disabled')?> ><i class="fa fa-save"></i> Save</button>
