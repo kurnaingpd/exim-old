@@ -497,13 +497,13 @@
 									<?php $this->load->view('UploadDocPI/role/warehouse/packing-list'); ?>
 									<!-- Stuffing -->
 									<?php $this->load->view('UploadDocPI/role/warehouse/stuffing'); ?>
-
+									
 									<!-- QA -->
 									<!-- COO -->
 									<?php $this->load->view('UploadDocPI/role/qa/coo'); ?>
 									<!-- Health Certificate -->
 									<?php $this->load->view('UploadDocPI/role/qa/health-certificate'); ?>
-									<!-- Health Certificate -->
+									<!-- Material Safety -->
 									<?php $this->load->view('UploadDocPI/role/qa/material-safety'); ?>
 									<!-- COA -->
 									<?php $this->load->view('UploadDocPI/role/qa/coa'); ?>
@@ -533,6 +533,12 @@
 									<?php $this->load->view('UploadDocPI/role/proc/etd'); ?>
 									<!-- Estimation Time of Arrival -->
 									<?php $this->load->view('UploadDocPI/role/proc/eta'); ?>
+									<!-- Stuffing -->
+									<?php $this->load->view('UploadDocPI/role/warehouse/stuffing'); ?>
+									<!-- COO -->
+									<?php $this->load->view('UploadDocPI/role/qa/coo'); ?>
+									<!-- Health Certificate -->
+									<?php $this->load->view('UploadDocPI/role/qa/health-certificate'); ?>
 								</div>
 							</div>
 
