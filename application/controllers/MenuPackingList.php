@@ -281,10 +281,6 @@ public function packing_list_print($Packlist_Id)
     $data['summary_gross']=$this->MPackList->getsum_gross_packlist($Packlist_Id);
     $data['summary_cbm']=$this->MPackList->getsum_cbm_packlist($Packlist_Id);
     $data['print_check']=$this->MPackList->get_checkprint($Packlist_Id);
-
-    echo "<pre>";
-    print_r($data['detailsdata_printpack']->gexp_packlist_number);
-    echo "</pre>";
     
     require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php');
     $mpdf = new \Mpdf\Mpdf();
