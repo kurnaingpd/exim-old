@@ -276,21 +276,59 @@ public function packing_list_print($Packlist_Id)
 
     $data['detailsdata_printpack']=$this->MPackList->get_detail_data_printpack($Packlist_Id);
     $data['lsdetails_data']=$this->MPackList->get_lsdetail_datapack($Packlist_Id);
-
-    // $packlist_no=$data['lsdetails_data'][0]->gexp_packlist_number;
-
     $data['summary_qty']=$this->MPackList->getsum_qty_packlist($Packlist_Id);
     $data['summary_nett']=$this->MPackList->getsum_nett_packlist($Packlist_Id);
     $data['summary_gross']=$this->MPackList->getsum_gross_packlist($Packlist_Id);
     $data['summary_cbm']=$this->MPackList->getsum_cbm_packlist($Packlist_Id);
-
     $data['print_check']=$this->MPackList->get_checkprint($Packlist_Id);
 
-    // print_r($data);
-    require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
-    //$mpdf=new Mpdf('utf-8', 'A4', 10.5, 'arial'); // Membuat file mpdf baru
+    echo "<pre>";
+    print_r($data['detailsdata_printpack']->gexp_packlist_number);
+    echo "</pre>";
+    
+    require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php');
     $mpdf = new \Mpdf\Mpdf();
-    $mpdf->AddPage("L","","","","","15","15","15","15","","","","","","","","","","","","A4");
+    $mpdf->defaultheaderline = 0;
+    $mpdf->defaultfooterline = 0;
+    $mpdf->SetHeader(
+        '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="12%" style="margin-bottom: 3%;" />
+        |<div style="font-style: normal;">
+            <u>PACKING LIST</u><br>
+            <div style="font-weight: normal; font-size: 9px;">
+                '.$data['detailsdata_printpack']->gexp_packlist_number.'
+            </div>
+        </div>
+        |');
+    $mpdf->SetFooter('
+        <table style="font-size: 9px; width: 100%;">
+            <tr>
+                <td align="left">
+                    <b>Factory Kudus</b><br>
+                    Jl. Lingkar Timur, Loram Wetan<br>
+                    Jati, Kab. Kudus<br>
+                    Jawa Tengah 59344<br>
+                    P +62 291 4257202<br>
+                    sumberkopiprima.com
+                </td>
+                <td align="left" style="padding-left: 40%;">
+                    <b>Factory Mojokerto</b><br>
+                    Jl. Raya Mojokerto - Lamongan<br>
+                    Desa Mojokumpul, Kemlagi<br>
+                    Mojokerto<br>
+                    Jawa Timur 61353
+                </td>
+            </tr>
+        </table>
+    ');
+    $mpdf->AddPage('L', // L - landscape, P - portrait 
+                    '', '', '', '',
+                    10, // margin_left
+                    10, // margin right
+                    40, // margin top
+                    0, // margin bottom
+                    10, // margin header
+                    5
+                );
     $html=$this->load->view('LivePrint/packing_list_print',$data,true);
     $mpdf->WriteHTML($html);
     $mpdf->Output();

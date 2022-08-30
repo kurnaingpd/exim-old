@@ -39,7 +39,7 @@
                 border-width:0.5px; 
                 width: 200px; 
                 padding:5px; 
-                font-size:10px;
+                font-size:9px;
             }
 
             .td_titik_header {
@@ -47,7 +47,7 @@
                 border-width:0.5px; 
                 width: 20px; 
                 padding:5px; 
-                font-size:10px;
+                font-size:9px;
             }
 
             .td_data_header {
@@ -56,19 +56,19 @@
                 border-width:2px; 
                 width: 460px; 
                 padding:5px; 
-                font-size:10px;
+                font-size:9px;
             }
 
             .td_title_detail {
                 border:solid; 
                 border-width:0.5px; 
-                font-size:10px;
+                font-size:9px;
             }
 
             .td_data_detail {
                 border:solid; 
                 border-width:0.5px; 
-                font-size:10px;
+                font-size:9px;
             }
 
             .td_sum {
@@ -82,17 +82,6 @@
     <body>
         
         <div style="text-align: center; margin: 0 auto;">
-            <table style="margin-bottom: 2%;">
-                <tr>
-                    <td style="padding-right: 30%;">
-                        <img src="<?=base_url('assets/images/skp-logo-crop-removebg.png')?>" width="18%">
-                    </td>
-                </tr>
-            </table>
-
-            <p class="p_title">PACKING LIST</p>
-            <p class="p_nomor"><?php echo $detailsdata_printpack->gexp_packlist_number; ?></p>
-
             <table>
                 <tr>
                     <td class="td_title_header">INVOICE NO.</td>
@@ -246,12 +235,11 @@
                 </tr>
             </table>
 
-            <table style="font-size: 10px; margin-top: 20px;">
+            <table style="font-size: 10px; margin-top: 7%;">
                 <tr>
                     <td align="center">Kudus, <?=$detailsdata_printpack->gexp_packlist_date?></td>
                 </tr>
                 <tr>
-                    <!-- <td align="center" style="padding: 40px;"><?=strtoupper($detailsdata_printpack->print_name)?></td> -->
                     <td align="center" style="padding: 40px;">EVAN GUSTIN</td>
                 </tr>
             </table>
