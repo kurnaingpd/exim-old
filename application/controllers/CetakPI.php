@@ -56,13 +56,15 @@ class CetakPI extends CI_Controller
         $loadport_name=$data['listdataPI_byId'][0]->Loadport_Name;
 
         require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
-        $mpdf = new \Mpdf\Mpdf();
+        $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
         $mpdf->defaultheaderline = 0;
         $mpdf->defaultfooterline = 0;
         $mpdf->SetHeader(
-            '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="12%" style="margin-bottom: 3%;" />
-            |<div style="font-style: normal;">PROFORMA INVOICE</div>|'
-        );
+            '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="16%" style="margin-bottom: 3%;" />
+            |<div style="font-style: normal;">
+                PROFORMA INVOICE
+            </div>
+            |');
         $mpdf->AddPage(
             'P', // L - landscape, P - portrait 
             '', '', '', '',
@@ -71,7 +73,7 @@ class CetakPI extends CI_Controller
             30, // margin top
             0, // margin bottom
             10, // margin header
-            5
+            8
         );
         $mpdf->SetFooter('
             <div style="font-style: normal; font-size:9px; text-align: left;">Note : Please Sign This Proforma Invoice, fill the date and send back to us with PO as your confirmation</div>

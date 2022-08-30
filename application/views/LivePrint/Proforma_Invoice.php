@@ -203,7 +203,7 @@
             </tbody>
         </table>
 
-        <table style="width:100%; font-size:10px; margin-top: 20%;">
+        <table style="width:100%; font-size:10px; margin-top: 17%;">
             <tbody>
                 <tr>
                     <td align="center" style="width: 50%;">Jakarta, <?=IndoDate?></td>
@@ -219,7 +219,5 @@
                 </tr>
             </tbody>
         </table>
-
-        <!-- <div style="font-weight: bold; font-size:10px; margin-top: 70px;">Note : Please Sign This Proforma Invoice, fill the date and send back to us with PO as your confirmation</div> -->
     </body>
 </html>

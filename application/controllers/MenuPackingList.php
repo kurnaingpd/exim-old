@@ -283,7 +283,7 @@ public function packing_list_print($Packlist_Id)
     $data['print_check']=$this->MPackList->get_checkprint($Packlist_Id);
     
     require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php');
-    $mpdf = new \Mpdf\Mpdf();
+    $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
     $mpdf->defaultheaderline = 0;
     $mpdf->defaultfooterline = 0;
     $mpdf->SetHeader(

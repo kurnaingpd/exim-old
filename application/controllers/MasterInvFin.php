@@ -120,11 +120,11 @@ public function invoice_print($invoice_id)
     $this->load->helper('Currency');
 
     require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
-    $mpdf = new \Mpdf\Mpdf();
+    $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
     $mpdf->defaultheaderline = 0;
     $mpdf->defaultfooterline = 0;
     $mpdf->SetHeader(
-        '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="12%" style="margin-bottom: 3%;" />
+        '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="16%" style="margin-bottom: 3%;" />
         |<div style="font-style: normal;">
             <u>INVOICE</u><br>
             <div style="font-weight: normal; font-size: 9px;">
