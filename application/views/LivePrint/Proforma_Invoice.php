@@ -4,7 +4,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Proforma_Invoice<?php echo $listdataPI_byId[0]->gexp_pi_no ?></title>
+        <title>Proforma Invoice: <?php echo $listdataPI_byId[0]->gexp_pi_no ?></title>
     </head>
     <style>
         table{margin:0px; font-size: 11px;}
@@ -33,7 +33,7 @@
         }
     </style>
     <body>
-        <h3 style="font-weight: bold; text-align:center;">PROFORMA INVOICE</h3>
+        <!-- <h5 style="font-weight: bold; text-align:center;">PROFORMA INVOICE</h5> -->
         <table style="width: 100%; margin-bottom: 10px; font-size:10px;">
             <tbody>
                 <tr>
@@ -203,7 +203,7 @@
             </tbody>
         </table>
 
-        <table style="width:100%; font-size:10px; margin-top: 40px;">
+        <table style="width:100%; font-size:10px; margin-top: 20%;">
             <tbody>
                 <tr>
                     <td align="center" style="width: 50%;">Jakarta, <?=IndoDate?></td>
@@ -220,6 +220,6 @@
             </tbody>
         </table>
 
-        <div style="font-weight: bold; font-size:10px; margin-top: 70px;">Note : Please Sign This Proforma Invoice, fill the date and send back to us with PO as your confirmation</div>
+        <!-- <div style="font-weight: bold; font-size:10px; margin-top: 70px;">Note : Please Sign This Proforma Invoice, fill the date and send back to us with PO as your confirmation</div> -->
     </body>
 </html>

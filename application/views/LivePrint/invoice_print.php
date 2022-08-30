@@ -386,7 +386,7 @@
                 $tQtyFree = 0;
                 $tPriceFree = 0;
                 foreach($lsfree_goods as $gab => $vals) : 
-                    $PriceFree = $vals->gexp_packlistdet_qty * $vals->gexp_good_price;
+                    $PriceFree = $vals->gexp_good_qty * $vals->gexp_good_price;
             ?>
                 <tr>
                     <td class="td_data_detail"><?=$no?></td>
@@ -399,7 +399,7 @@
                     <td class="td_data_detail"><?=$vals->gexp_good_hs_code?></td>
                     <td class="td_data_detail" align="left"><?=$vals->gexp_packlistdet_descgod?></td>
                     <td class="td_data_detail" align="left"><?=$vals->gexp_packlistdet_packing?></td>
-                    <td class="td_data_detail" align="right"><?=number_format($vals->gexp_packlistdet_qty)?></td>
+                    <td class="td_data_detail" align="right"><?=number_format($vals->gexp_good_qty)?></td>
 
                     <?php if($checkvalue_print->inv_print_batch=='1') : ?>
                         <td class="td_data_detail"><?=$vals->gexp_packlistdet_batch?></td>
@@ -418,7 +418,7 @@
                 </tr>
             <?php 
                     $no++;
-                    $tQtyFree += $vals->gexp_packlistdet_qty;
+                    $tQtyFree += $vals->gexp_good_qty;
                     $tPriceFree += $PriceFree;
                     endforeach; 
                 endif;
