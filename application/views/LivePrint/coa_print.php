@@ -41,7 +41,7 @@
   <body>
 
 
-  <h4 style="text-align: center; font-weight:700; font-size:20px;">CERTIFICATE OF ANALYSIS</h4>
+  <!-- <h4 style="text-align: center; font-weight:700; font-size:20px;">CERTIFICATE OF ANALYSIS</h4> -->
 
 <br>
 <br>
