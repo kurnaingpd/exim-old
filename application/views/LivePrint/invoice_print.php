@@ -67,7 +67,7 @@
                 border-width:0.5px; 
                 width: 20px; 
                 padding:5px; 
-                font-size:9px;
+                font-size:8px;
             }
 
             .td_data_header {
@@ -76,26 +76,26 @@
                 border-width:2px; 
                 width: 460px; 
                 padding:5px; 
-                font-size:9px;
+                font-size:8px;
             }
 
             .td_title_detail {
                 border:solid; 
                 border-width:0.5px; 
-                font-size:9px;
+                font-size:8px;
             }
 
             .td_data_detail {
                 border:solid; 
                 border-width:0.5px; 
-                font-size:9px;
+                font-size:8px;
             }
 
             .td_sum {
                 border:solid; 
                 border-width:0.5px; 
                 font-weight:bold;
-                font-size:9px;
+                font-size:8px;
             }
 
             .td_title_notes {
@@ -103,7 +103,7 @@
                 border-width:0.5px; 
                 width: 200px; 
                 padding:3px; 
-                font-size:9px;
+                font-size:8px;
             }
 
             .td_titik_notes {
@@ -111,7 +111,7 @@
                 border-width:0.5px; 
                 width: 20px; 
                 padding:3px; 
-                font-size:9px;
+                font-size:8px;
             }
 
             .td_data_notes {
@@ -120,14 +120,13 @@
                 border-width:2px; 
                 width: 460px; 
                 padding:3px; 
-                font-size:9px;
+                font-size:8px;
             }
         </style>
 
     </head>
     <body>
-        
-        <table style="margin-bottom: 2%;">
+        <!-- <table style="margin-bottom: 2%;">
             <tr>
                 <td style="padding-right: 30%;">
                     <img src="<?=base_url('assets/images/skp-logo-crop-removebg.png')?>" width="18%">
@@ -136,7 +135,7 @@
         </table>
 
         <p class="p_title">INVOICE</p>
-        <p class="p_nomor"><?=$lsinvoice_byid->gexp_invoice_no?></p>
+        <p class="p_nomor"><?=$lsinvoice_byid->gexp_invoice_no?></p> -->
 
         <table>
             <tr>
@@ -506,7 +505,7 @@
             </tr>
         </table>
 
-        <table style="font-size: 10px; margin-top: 30px;">
+        <table style="font-size: 10px; margin-top: 10%;">
             <tr>
                 <td align="center">Kudus, <?=$lsinvoice_byid->gexp_packlist_date?></td>
             </tr>

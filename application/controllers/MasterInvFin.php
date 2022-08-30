@@ -109,38 +109,65 @@ public function InsertCreateNew()
 
 public function invoice_print($invoice_id)
 {
-
     $data['lsinvoice_byid']=$this->MFin->getlistinvoice_byid($invoice_id);
-
     $id_pi=$data['lsinvoice_byid']->gexp_invoice_pi;
-
     $data['lspurchase_goods']=$this->MFin->getitem_purchasegood_bynopi($id_pi);
-
     $data['lsfree_goods']=$this->MFin->getitem_freegood_bynopi($id_pi);
-
     $data['checkvalue_print']=$this->MFin->checkvalue_printout($invoice_id);
-
     $data['summary_purchasegood']=$this->MFin->summary_purchasegood($invoice_id);
-
     $data['summary_freegood']=$this->MFin->summary_freegood($invoice_id);
-
     $data['checker_currency']=$this->MFin->currency_invoice($invoice_id);
-
-    // $this->load->helper('url');
     $this->load->helper('Currency');
-    // $this->load->library('CurencyLang');
-    // print_r($data['lspurchase_goods']);
-    
 
     require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
-    // $mpdf=new Mpdf('utf-8', 'A4', 10.5, 'arial'); // Membuat file mpdf baru
     $mpdf = new \Mpdf\Mpdf();
-    $mpdf->AddPage("P","","","","","15","15","15","15","","","","","","","","","","","","A4");
+    $mpdf->defaultheaderline = 0;
+    $mpdf->defaultfooterline = 0;
+    $mpdf->SetHeader(
+        '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="12%" style="margin-bottom: 3%;" />
+        |<div style="font-style: normal;">
+            <u>INVOICE</u><br>
+            <div style="font-weight: normal; font-size: 9px;">
+                '.$data['lsinvoice_byid']->gexp_invoice_no.'
+            </div>
+        </div>
+        |');
+    $mpdf->SetFooter('
+        <table style="font-size: 9px; width: 100%;">
+            <tr>
+                <td align="left">
+                    <b>Factory Kudus</b><br>
+                    Jl. Lingkar Timur, Loram Wetan<br>
+                    Jati, Kab. Kudus<br>
+                    Jawa Tengah 59344<br>
+                    P +62 291 4257202<br>
+                    sumberkopiprima.com
+                </td>
+                <td align="left" style="padding-left: 40%;">
+                    <b>Factory Mojokerto</b><br>
+                    Jl. Raya Mojokerto - Lamongan<br>
+                    Desa Mojokumpul, Kemlagi<br>
+                    Mojokerto<br>
+                    Jawa Timur 61353
+                </td>
+            </tr>
+        </table>
+    ');
+    // $mpdf->AddPage("P","","","","","15","15","15","15","","","","","","","","","","","","A4");
+    $mpdf->AddPage('P', // L - landscape, P - portrait 
+                    '', '', '', '',
+                    20, // margin_left
+                    20, // margin right
+                    30, // margin top
+                    0, // margin bottom
+                    10, // margin header
+                    5
+                );
     $html=$this->load->view('LivePrint/invoice_print',$data,true);
     $mpdf->WriteHTML($html);
-    $mpdf->Output();
-
-
+    $filename = "Export-Invoice";
+    $time = date('YmdHis');
+    $mpdf->Output($filename."-".$time.".pdf", 'I');
 }
 
 

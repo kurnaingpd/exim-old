@@ -327,7 +327,9 @@ public function packing_list_print($Packlist_Id)
                 );
     $html=$this->load->view('LivePrint/packing_list_print',$data,true);
     $mpdf->WriteHTML($html);
-    $mpdf->Output();
+    $filename = "Export-PackingList";
+    $time = date('YmdHis');
+    $mpdf->Output($filename."-".$time.".pdf", 'I');
 }
 
 
