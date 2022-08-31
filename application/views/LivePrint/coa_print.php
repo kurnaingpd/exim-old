@@ -40,7 +40,7 @@
 
   <body>
     <!-- <div style="text-align: center; font-style: bold; font-size:20px;">CERTIFICATE OF ANALYSIS</div> -->
-    <h4 style="text-align: center; font-style:bold; font-size:20px;">SURAT PERNYATAAN PRODUK</h4>
+    <h4 style="text-align: center; font-style:bold; font-size:20px;">CERTIFICATE OF ANALYSIS</h4>
 
 <table>
 <tr>
