@@ -41,7 +41,7 @@
   <body>
 
 
-  <h4 style="text-align: center; font-weight:700; font-size:20px;">SURAT PERNYATAAN PRODUK</h4>
+  <h4 style="text-align: center; font-style:bold; font-size:20px;">SURAT PERNYATAAN PRODUK</h4>
   
   <br>
 
@@ -160,28 +160,24 @@ $no_urut=1;
   </tr>
 </table>
 
-<br>
-<table style="width: 100%; text-align:left; font-size:14px;">
+
+<table style="width: 30%; text-align:left; font-size:14px; margin-top: 50%;">
   <tr>
-      <td style="text-align:left; font-size:14px;">
+      <td style="text-align:center; font-size:14px;">
         <?php $date = date_create($rowdetailspp->gexp_spp_date); ?>
          Kudus, <?php echo indonesian_date(date_format($date,"Y-m-d")); ?>
       </td>
   </tr>
 </table>
-
-<br>
-<br>
-<br>
-<table style="width: 100%; text-align:left; font-size:14px;">
+<table style="width: 30%; text-align:left; font-size:14px; margin-top: 10%;">
   <tr>
-      <td style="text-align:left;">
+      <td style="text-align:center;">
         <?php //echo $rowdetailspp->gexp_spp_nama ?>
-        Slamet Supriyadi
+        <u>Slamet Supriyadi</u>
       </td>
   </tr>
   <tr>
-      <td style="text-align:left;">
+      <td style="text-align:center;">
         <?php //echo $rowdetailspp->gexp_spp_jabatan ?>
         QA Manager
       </td>
