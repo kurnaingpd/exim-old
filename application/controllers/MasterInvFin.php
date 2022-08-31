@@ -126,14 +126,7 @@ public function invoice_print($invoice_id)
     $mpdf->setAutoTopMargin = 'stretch';
     $mpdf->setAutoBottomMargin = 'stretch';
     $mpdf->SetHeader(
-        '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="16%" style="margin-bottom: 3%;" />
-        |<div style="font-style: normal;">
-            <u>INVOICE</u><br>
-            <div style="font-weight: normal; font-size: 9px;">
-                '.$data['lsinvoice_byid']->gexp_invoice_no.'
-            </div>
-        </div>
-        |');
+        '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="16%" />||');
     $mpdf->SetFooter('
         <table style="font-size: 9px; width: 100%;">
             <tr>

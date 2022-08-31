@@ -9,16 +9,17 @@
         <style>
             .p_title {
                 text-align: center; 
-                font-weight:bold; 
-                font-size:13px; 
-                margin-bottom:-50px; 
-                text-decoration:underline;
+                font-weight: bold; 
+                font-size: 11px; 
+                margin-bottom: -50px; 
+                text-decoration: underline;
             }
-
+            
             .p_nomor {
                 text-align: center; 
-                font-weight:bold; 
-                margin-top:0px;
+                font-weight: normal;
+                margin-top: 0px;
+                font-size: 9px; 
             }
 
             /* table{
@@ -132,10 +133,10 @@
                     <img src="<?=base_url('assets/images/skp-logo-crop-removebg.png')?>" width="18%">
                 </td>
             </tr>
-        </table>
+        </table>-->
 
         <p class="p_title">INVOICE</p>
-        <p class="p_nomor"><?=$lsinvoice_byid->gexp_invoice_no?></p> -->
+        <p class="p_nomor"><?=$lsinvoice_byid->gexp_invoice_no?></p>
 
         <table>
             <tr>
