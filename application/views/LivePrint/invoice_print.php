@@ -505,7 +505,7 @@
             </tr>
         </table>
 
-        <table style="font-size: 10px; margin-top: 10%;">
+        <table style="font-size: 10px; margin-top: 9%;">
             <tr>
                 <td align="center">Kudus, <?=$lsinvoice_byid->gexp_packlist_date?></td>
             </tr>
