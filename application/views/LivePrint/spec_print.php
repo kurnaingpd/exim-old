@@ -4,10 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
-
     <title>Product_Specification_Print</title>
 
     <style>
@@ -41,24 +37,11 @@
   <body>
 
 
-  <h4 style="text-align: center; font-weight:bold; font-size:16px;">PRODUCT SPECIFICATION</h4>
-  <h4 style="text-align: center; font-size:13px;"><?php echo $getrowsdetail_specdet_byid->ItemBrandName?></h4>
-  <table style="width:100%;">
-      <tr>
-          <td style="text-align: center; font-size:11px;"> <?php echo $getrowsdetail_specdet_byid->ItemName?></td>
-      </tr>
-  </table>
-  <table style="width:100%;">
-      <tr>
-          <td style="text-align: center; font-size:11px;"><p style="font-size:11px;"><?php echo $getrowsdetail_specdet_byid->gexp_spec_po_no?></p></td>
-      </tr>
-  </table>
-
-  <!-- <p style="text-align: center">......Product Name.....</p>
-  <p style="text-align: center">......PO Numbers :.....</p> -->
-
-<br>
-
+  <!-- <h4 style="text-align: center; font-weight:bold; font-size:16px;">PRODUCT SPECIFICATION</h4> -->
+  <h6 style="font-weight: bold; text-align:center; margin-bottom: 0px;">PRODUCT SPECIFICATION</h6>
+  <h6 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 0px;"><?=$getrowsdetail_specdet_byid->ItemBrandName?></h6>
+  <h6 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 0px;"><?=$getrowsdetail_specdet_byid->ItemName?></h6>
+  <h6 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 3%;">PO Number: <?=$getrowsdetail_specdet_byid->gexp_spec_po_no?></h6>
 <table>
 <tr>
     <td style="text-align:left; font-weight:bold; border-width:0.5px; width: 200px; padding:5px; font-size:11px;">
