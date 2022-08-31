@@ -137,17 +137,53 @@ public function save_master_qs()
 
 public function qs_print_byrow($gexp_qs_id)
 {
-    $data['gexp_qs_rows']=$this->MQc->getrows_qcert($gexp_qs_id);
+    require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php');
 
+    $data['gexp_qs_rows']=$this->MQc->getrows_qcert($gexp_qs_id);
     $data['lsproducts']=$this->MQc->getlistitem_qs($gexp_qs_id);
-    // echo $gexp_qs_id;
-    require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
-    // $mpdf=new Mpdf('utf-8', 'A4', 10.5, 'arial'); // Membuat file mpdf baru
-    $mpdf = new \Mpdf\Mpdf();
-    $mpdf->AddPage("P","","","","","15","15","15","15","","","","","","","","","","","","A4");
+    $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
+    // $mpdf->AddPage("P","","","","","15","15","15","15","","","","","","","","","","","","A4");
+    $mpdf->defaultheaderline = 0;
+    $mpdf->defaultfooterline = 0;
+    $mpdf->setAutoTopMargin = 'stretch';
+    $mpdf->setAutoBottomMargin = 'stretch';
+    $mpdf->SetHeader('<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="18%" />||');
+    $mpdf->AddPage(
+        'P', // L - landscape, P - portrait 
+        '', '', '', '',
+        20, // margin_left
+        20, // margin right
+        0, // margin top
+        0, // margin bottom
+        10, // margin header
+        8
+    );
+    $mpdf->SetFooter('
+        <table style="font-size: 9px; width: 100%; margin-top: 2%;">
+            <tr>
+                <td align="left">
+                    <b>Factory Kudus</b><br>
+                    Jl. Lingkar Timur, Loram Wetan<br>
+                    Jati, Kab. Kudus<br>
+                    Jawa Tengah 59344<br>
+                    P +62 291 4257202<br>
+                    sumberkopiprima.com
+                </td>
+                <td align="left" style="padding-left: 40%;">
+                    <b>Factory Mojokerto</b><br>
+                    Jl. Raya Mojokerto - Lamongan<br>
+                    Desa Mojokumpul, Kemlagi<br>
+                    Mojokerto<br>
+                    Jawa Timur 61353
+                </td>
+            </tr>
+        </table>
+    ');
     $html=$this->load->view('LivePrint/qs_print',$data,true);
     $mpdf->WriteHTML($html);
-    $mpdf->Output();
+    $filename = "Export-QCertificate";
+    $time = date('YmdHis');
+    $mpdf->Output($filename."-".$time.".pdf", 'I');
 }
 
 

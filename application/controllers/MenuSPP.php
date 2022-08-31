@@ -157,18 +157,15 @@ public function save_desc_spp()
 
 public function print_spp($gexp_spp_id)
 {
+    require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
     $data['rowdetailspp']=$this->MSpp->getrowmaster_sppbyid($gexp_spp_id);
     $data['getlistdetails_spp']=$this->MSpp->getlist_details_Spp($gexp_spp_id);
-
-    require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
-    // $mpdf = new \Mpdf\Mpdf();
     $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
     $mpdf->defaultheaderline = 0;
     $mpdf->defaultfooterline = 0;
     $mpdf->setAutoTopMargin = 'stretch';
     $mpdf->setAutoBottomMargin = 'stretch';
     $mpdf->SetHeader('<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="17%" />||');
-    // $mpdf->AddPage("P","","","","","15","15","15","15","","","","","","","","","","","","A4");
     $mpdf->AddPage(
         'P', // L - landscape, P - portrait 
         '', '', '', '',
@@ -202,7 +199,6 @@ public function print_spp($gexp_spp_id)
     ');
     $html=$this->load->view('LivePrint/spp_print',$data,true);
     $mpdf->WriteHTML($html);
-    // $mpdf->Output();
     $filename = "Export-SPP";
     $time = date('YmdHis');
     $mpdf->Output($filename."-".$time.".pdf", 'I');

@@ -42,9 +42,6 @@
 
 
   <h4 style="text-align: center; font-weight:700; font-size:20px;">TO WHOM IT MAY CONCERNED</h4>
-  
-  <br>
-
   <table style="width: 100%; text-align:left;">
   <tr>
       <td  style="text-align:left; font-size:14px;">
