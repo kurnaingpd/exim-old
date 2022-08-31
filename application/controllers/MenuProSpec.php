@@ -253,7 +253,7 @@ public function print_prodspec_detail($gexp_specdet_id)
     ');
     $html=$this->load->view('LivePrint/spec_print',$data,true);
     $mpdf->WriteHTML($html);
-    $filename = "Export-ProductSpecification";
+    $filename = "Export-ProductSpecification".$data['getrowsdetail_specdet_byid']->ItemCodeId;
     $time = date('YmdHis');
     $mpdf->Output($filename."-".$time.".pdf", 'I');
 }
