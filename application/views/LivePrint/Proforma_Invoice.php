@@ -33,7 +33,7 @@
         }
     </style>
     <body>
-        <!-- <h5 style="font-weight: bold; text-align:center;">PROFORMA INVOICE</h5> -->
+        <h6 style="font-weight: bold; text-align:center;">PROFORMA INVOICE</h6>
         <table style="width: 100%; margin-bottom: 10px; font-size:10px;">
             <tbody>
                 <tr>
@@ -203,7 +203,7 @@
             </tbody>
         </table>
 
-        <table style="width:100%; font-size:10px; margin-top: 17%;">
+        <table style="width:100%; font-size:10px; margin-top: 15%;">
             <tbody>
                 <tr>
                     <td align="center" style="width: 50%;">Jakarta, <?=IndoDate?></td>

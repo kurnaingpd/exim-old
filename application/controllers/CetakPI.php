@@ -59,12 +59,10 @@ class CetakPI extends CI_Controller
         $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
         $mpdf->defaultheaderline = 0;
         $mpdf->defaultfooterline = 0;
+        $mpdf->setAutoTopMargin = 'stretch';
+        $mpdf->setAutoBottomMargin = 'stretch';
         $mpdf->SetHeader(
-            '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="16%" style="margin-bottom: 3%;" />
-            |<div style="font-style: normal;">
-                PROFORMA INVOICE
-            </div>
-            |');
+            '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="16%" />||');
         $mpdf->AddPage(
             'P', // L - landscape, P - portrait 
             '', '', '', '',
