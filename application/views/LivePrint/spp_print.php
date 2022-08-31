@@ -42,8 +42,6 @@
 
 
   <h4 style="text-align: center; font-style:bold; font-size:20px;">SURAT PERNYATAAN PRODUK</h4>
-  
-  <br>
 
 <table style="width: 100%; text-align:left; font-size:14px;">
   <tr>

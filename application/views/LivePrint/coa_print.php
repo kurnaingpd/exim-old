@@ -39,12 +39,9 @@
     Width : 680px; -->
 
   <body>
+    <!-- <div style="text-align: center; font-style: bold; font-size:20px;">CERTIFICATE OF ANALYSIS</div> -->
+    <h4 style="text-align: center; font-style:bold; font-size:20px;">SURAT PERNYATAAN PRODUK</h4>
 
-
-  <!-- <h4 style="text-align: center; font-weight:700; font-size:20px;">CERTIFICATE OF ANALYSIS</h4> -->
-
-<br>
-<br>
 <table>
 <tr>
     <td style="text-align:left; border-width:0.5px; width: 200px; padding:5px; font-size:11px;">

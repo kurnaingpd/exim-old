@@ -258,26 +258,33 @@ class MenuCOA extends CI_Controller
 
     public function print_details_coa($idcoa_details)
     {
+        require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
+
         $UserId=$this->session->userdata('logged_gexp_in')->UsersId;
         $DataUsers=$this->MLogin->GetProfileSign($UserId);
         $GroupMenu=$DataUsers->UserGroup;
         $data['menusign']=$this->MLogin->GetMasterMenuSign($GroupMenu);
         $data['groupname']=$this->MLogin->GetGroupName($UserId);
-
         $data['getrowdetails_coa']=$this->MCoa->getdetailscoa_bydetsid($idcoa_details);
-
-        require_once('assets/mpdf_v8.0.3-master/vendor/autoload.php'); // Arahkan ke file mpdf.php didalam folder mpdf
+        
         $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
         $mpdf->defaultheaderline = 0;
         $mpdf->defaultfooterline = 0;
-        $mpdf->SetHeader(
-            '<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="18%" style="margin-bottom: 3%;" />
-            |<div style="font-style: normal;">
-                CERTIFICATE OF ANALYSIS
-            </div>
-            |');
+        $mpdf->setAutoTopMargin = 'stretch';
+        $mpdf->setAutoBottomMargin = 'stretch';
+        $mpdf->SetHeader('<img src="' . base_url() . 'assets/images/skp-logo-crop-removebg.png" width="17%" />||');
+        $mpdf->AddPage(
+            'P', // L - landscape, P - portrait 
+            '', '', '', '',
+            20, // margin_left
+            20, // margin right
+            20, // margin top
+            0, // margin bottom
+            10, // margin header
+            5
+        );
         $mpdf->SetFooter('
-            <table style="font-size: 9px; width: 100%;">
+            <table style="font-size: 9px; width: 100%; margin-top: 2%;">
                 <tr>
                     <td align="left">
                         <b>Factory Kudus</b><br>
@@ -297,16 +304,6 @@ class MenuCOA extends CI_Controller
                 </tr>
             </table>
         ');
-        // $mpdf->AddPage("P","","","","","15","15","15","15","","","","","","","","","","","","A4");
-        $mpdf->AddPage('P', // L - landscape, P - portrait 
-                        '', '', '', '',
-                        20, // margin_left
-                        20, // margin right
-                        20, // margin top
-                        0, // margin bottom
-                        10, // margin header
-                        5
-                    );
         $html=$this->load->view('LivePrint/coa_print',$data,true);
         $mpdf->WriteHTML($html);
         $filename = "Export-COA";

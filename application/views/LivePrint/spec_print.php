@@ -35,13 +35,10 @@
     Width : 680px; -->
 
   <body>
-
-
-  <!-- <h4 style="text-align: center; font-weight:bold; font-size:16px;">PRODUCT SPECIFICATION</h4> -->
-  <h6 style="font-weight: bold; text-align:center; margin-bottom: 0px;">PRODUCT SPECIFICATION</h6>
-  <h6 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 0px;"><?=$getrowsdetail_specdet_byid->ItemBrandName?></h6>
-  <h6 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 0px;"><?=$getrowsdetail_specdet_byid->ItemName?></h6>
-  <h6 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 3%;">PO Number: <?=$getrowsdetail_specdet_byid->gexp_spec_po_no?></h6>
+    <h4 style="font-weight: bold; text-align:center; margin-bottom: 0px;">PRODUCT SPECIFICATION</h4>
+    <h4 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 0px;"><?=$getrowsdetail_specdet_byid->ItemBrandName?></h4>
+    <h4 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 0px;"><?=$getrowsdetail_specdet_byid->ItemName?></h4>
+    <h4 style="font-weight: bold; text-align:center; margin-top: 0px; margin-bottom: 3%;">PO Number: <?=$getrowsdetail_specdet_byid->gexp_spec_po_no?></h4>
 <table>
 <tr>
     <td style="text-align:left; font-weight:bold; border-width:0.5px; width: 200px; padding:5px; font-size:11px;">
