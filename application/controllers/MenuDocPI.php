@@ -80,7 +80,8 @@ class MenuDocPI extends CI_Controller {
 		$this->load->config('email');
 		$this->load->library('email');
 		$this->email->set_newline("\r\n");
-		$this->email->from('no-reply@gonusa-distribusi.com');
+		$this->email->set_crlf("\r\n");
+		$this->email->from('no-reply2@gonusa-distribusi.com');
 		$this->email->to($implode);
 		$this->email->subject($subject);
 		$this->email->message($content);

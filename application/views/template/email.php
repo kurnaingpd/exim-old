@@ -18,8 +18,8 @@
 
         <p class="mt-5 d-inline-flex">
             Dengan Hormat,<br>
-            <div style="margin-bottom: 10px;">Berikut disampaikan bahwa terdapat update progress report PI dengan nomor : <?=$pi_no?> Update di aktifitas Signed PI, yaitu :</div>
-            <div style="margin-bottom: 10px;">- [<?=$pi_type?>] pada <?=$pi_create_at?> oleh user <?=$pi_execute_by?><br>Progress PI <?=$pi_progress?>%</div>
+            <div style="margin-bottom: 10px;">Berikut disampaikan bahwa terdapat update progress report PI dengan nomor : <?=$pi_no?> update di aktifitas Signed PI, yaitu :</div>
+            <div style="margin-bottom: 10px;">- [<?=$pi_type?>] pada <?=$pi_create_at?> oleh user <?=$pi_execute_by?><br>Progress PI <?=$pi_progress?>%. </div>
             <div style="margin-bottom: 10px;">Demikian disampaikan, untuk informasi lebih lanjut bisa dicheck di menu Signed PI aplikasi G-EXIM.</div>
         </p>
     </main>
